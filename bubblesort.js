@@ -1,18 +1,19 @@
-function bubbleSort(arr) {
-    let counter = 0;
+let swapCount;
 
-    // BASE CASE
-    if (counter === 0) {
+function bubbleSort(arr) {
+
+    if (swapCount === 0) {
         return arr;
     } else {
-        for (let i = 0; i < arr.length - 2; i++) {
-            if (arr[1 + 1] < arr[i]) {
-                let temp = arr[i];
-                first = arr[1 + 1];
-                arr[1 + 1] = temp;
-                counter++;
+        swapCount = 0;
+        for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[i + 1] < arr[i]) {
+                let temp = arr[i]
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapCount++;
             }
         }
+        return bubbleSort(arr);
     }
-
 }
